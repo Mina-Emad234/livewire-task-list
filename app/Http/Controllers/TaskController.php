@@ -14,9 +14,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $totalTasks = auth()->user()->tasks()->count();
-        $tasks = auth()->user()->tasks()->paginate(5);
-        return view('tasks.index', compact('tasks', 'totalTasks'));
+//        $totalTasks = auth()->user()->tasks()->count();
+//        $tasks = auth()->user()->tasks()->paginate(5);
+        return view('tasks.index');
     }
 
     /**
@@ -37,13 +37,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        auth()->user()->tasks()->create([
-            'title' => $request->title,
-            'status' => false,
-        ]);
-
-
-        return back();
+//        auth()->user()->tasks()->create([
+//            'title' => $request->title,
+//            'status' => false,
+//        ]);
+//
+//
+//        return back();
     }
 
     /**
