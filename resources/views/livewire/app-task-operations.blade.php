@@ -51,7 +51,7 @@
     <div class="form-group">
         @if($taskId)
             <button wire:click.prevent="updateTask()" class="btn btn-primary btn-block">Update</button>
-            <button wire:click.prevent="resetData()" class="btn btn-secondary btn-block">Add New Task</button>
+            <button wire:click.prevent="clearData()" class="btn btn-secondary btn-block">Add New Task</button>
         @else
         <button wire:click.prevent="addTask()" class="btn btn-primary btn-block">Add</button>
         @endif

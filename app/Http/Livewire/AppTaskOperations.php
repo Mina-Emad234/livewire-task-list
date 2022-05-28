@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Task;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -24,7 +25,7 @@ class AppTaskOperations extends Component
     protected $rules =[
       'title'=>'required|min:10',
       'description'=>'required|min:10|max:2000',
-      'task_image'=>'nullable|mimes:jpg,png,jpeg,gif|between:0,4000',
+      'task_image'=>'nullable|mimes:jpg,png,jpeg,gif|max:4000',
     ];
 
 
@@ -57,6 +58,7 @@ class AppTaskOperations extends Component
 
     public function resetData()
     {
+        $this->resetErrorBag();
         $this->title = null;
         $this->description = null;
         $this->title = null;
@@ -125,6 +127,11 @@ class AppTaskOperations extends Component
             'showCancelButton'  =>  false,
             'showConfirmButton'  =>  false
         ]);
+    }
+
+    public function clearData()
+    {
+        $this->resetData();
     }
 
     public function render()
